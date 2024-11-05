@@ -38,7 +38,7 @@ public partial class Step2PageViewModel : ObservableObject
 
 
     [RelayCommand]
-    private async void CalculateBMI() =>
+    private async Task CalculateBMI() =>
         await _navigationService.PushAsync(new ResultsPage(_selectedGender, SelectedHeight, SelectedWeight));
 
 
