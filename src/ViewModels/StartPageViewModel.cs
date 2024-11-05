@@ -1,4 +1,5 @@
-﻿namespace MauiBMICalculator.ViewModels;
+﻿
+namespace MauiBMICalculator.ViewModels;
 
 public partial class StartPageViewModel : ObservableObject
 {
@@ -20,7 +21,7 @@ public partial class StartPageViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private async void SelectGender(string gender)
+    private Task SelectGender(string gender)
     {
         selectedGender = gender;
 
@@ -31,10 +32,11 @@ public partial class StartPageViewModel : ObservableObject
             IsMaleSelected = true;
         else
             IsFemaleSelected = true;
+        return Task.CompletedTask;
     }
 
     [RelayCommand]
-    private async void GotoStep2()
+    private async Task GotoStep2()
     {
         if (string.IsNullOrEmpty(selectedGender))
         {
